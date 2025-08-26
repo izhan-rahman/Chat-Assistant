@@ -1,0 +1,65 @@
+{
+  "siteName": "Caviaar Mode",
+  "domain": "https://caviaarmode.com",
+  "pages": {
+    "home": {
+      "url": "https://caviaarmode.com/",
+      "title": "Fashion Forward - Caviaar Mode",
+      "summary": "Discover the latest trends in fashion with our premium collection of apparel and accessories."
+    },
+    "contact": {
+      "url": "https://caviaarmode.com/contact-us",
+      "title": "Contact Us",
+      "summary": "Get in touch with Caviaar Mode support team for inquiries regarding orders, shipping or returns."
+    },
+    "about": {
+      "url": "https://caviaarmode.com/about-us",
+      "title": "About Caviaar Mode",
+      "summary": "Learn more about our mission, values and commitment to quality fashion."
+    },
+    "terms": {
+      "url": "https://caviaarmode.com/terms-and-conditions",
+      "title": "Terms and Conditions",
+      "summary": "Read the legal terms and conditions related to purchases from Caviaar Mode."
+    },
+    "privacy": {
+      "url": "https://caviaarmode.com/privacy-policy",
+      "title": "Privacy Policy",
+      "summary": "Understand how we collect, use and protect your personal information."
+    },
+    "refund": {
+      "url": "https://caviaarmode.com/cancellation-and-refund-policy",
+      "title": "Cancellation and Refund Policy",
+      "summary": "Details about order cancellations, returns and refunds."
+    },
+    "shipping": {
+      "url": "https://caviaarmode.com/shipping-policy",
+      "title": "Shipping Policy",
+      "summary": "Information on shipping options, costs, and estimated delivery times."
+    },
+    "collections": {
+      "url": "https://caviaarmode.com/collections",
+      "title": "Product Collections",
+      "summary": "Browse our collections including denim, t-shirts, dresses, and more."
+    },
+    "cart": {
+      "url": "https://caviaarmode.com/cart",
+      "title": "Shopping Cart",
+      "summary": "Review your selected items and proceed to checkout."
+    },
+    "track": {
+      "url": "https://caviaarmode.com/track-order",
+      "title": "Track Your Order",
+      "summary": "Check the status and shipping progress of your orders."
+    },
+    "login": {
+      "url": "https://caviaarmode.com/login",
+      "title": "User Login",
+      "summary": "Sign in to your account for order tracking and profile management."
+    }
+  },
+  "contactInfo": {
+    "email": "support@caviaarmode.com",
+    "phone": "+1-800-123-4567"
+  }
+}

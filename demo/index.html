@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caviarmode - Fashion Store Demo</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #3a86ff;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .hero {
+      background: linear-gradient(135deg, #3a86ff, #667eea);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background: #fff;
+      color: #3a86ff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .products {
+      padding: 4rem 0;
+    }
+    .products h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-img {
+      height: 250px;
+      background: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 1.2rem;
+    }
+    .product-info {
+      padding: 1.5rem;
+    }
+    .product-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .product-price {
+      color: #3a86ff;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .footer {
+      background: #333;
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    /* Chat Widget Styles */
+    #chat-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 60px;
+      height: 60px;
+      background-color: #3a86ff;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(58, 134, 255, 0.4);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      z-index: 10000;
+    }
+    #chat-toggle:hover {
+      background-color: #2d6eea;
+    }
+    #chat-toggle svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+    #chat-popup {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      width: 360px;
+      max-height: 600px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+    #chat-popup.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #chat-header {
+      background-color: #3a86ff;
+      color: white;
+      padding: 16px 20px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      border-radius: 16px 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #chat-close {
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+    }
+    #chat-messages {
+      flex-grow: 1;
+      padding: 16px 20px;
+      overflow-y: auto;
+      background: #f9fbff;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .message {
+      max-width: 75%;
+      padding: 12px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      font-weight: 500;
+    }
+    .message.user {
+      background-color: #3a86ff;
+      color: white;
+      margin-left: auto;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0 4px 10px rgba(58, 134, 255, 0.35);
+    }
+    .message.bot {
+      background-color: white;
+      border: 1.5px solid #d4d8dd;
+      color: #222;
+      border-bottom-left-radius: 6px;
+    }
+    .message-links {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .action-link {
+      background-color: #3a86ff;
+      color: white;
+      padding: 8px 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .action-link:hover {
+      background-color: #2d6eea;
+    }
+    #chat-input-area {
+      display: flex;
+      gap: 12px;
+      padding: 18px 20px;
+      border-top: 1px solid #ddd;
+      background: white;
+      border-radius: 0 0 16px 16px;
+    }
+    #chat-input {
+      flex-grow: 1;
+      border: 1.5px solid #d4d8dd;
+      border-radius: 30px;
+      padding: 14px 20px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    #chat-input:focus {
+      border-color: #3a86ff;
+      box-shadow: 0 0 8px #3a86ff55;
+    }
+    #chat-send {
+      background-color: #3a86ff;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    #chat-send:hover {
+      background-color: #2d6eea;
+    }
+    .typing {
+      color: #999;
+      font-style: italic;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">CAVIAAR MODE</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Fashion Forward</h1>
+      <p>Discover the latest trends in fashion with our premium collection</p>
+      <a href="#products" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img">Classic Denim Jacket</div>
+          <div class="product-info">
+            <div class="product-title">Classic Denim Jacket</div>
+            <div class="product-price">$89.99</div>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">Cotton T-Shirt</div>
+          <div class="product-info">
+            <div class="product-title">Premium Cotton T-Shirt</div>
+            <div class="product-price">$24.99</div>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">Summer Dress</div>
+          <div class="product-info">
+            <div class="product-title">Floral Summer Dress</div>
+            <div class="product-price">$65.99</div>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">Casual Sneakers</div>
+          <div class="product-info">
+            <div class="product-title">Comfortable Sneakers</div>
+            <div class="product-price">$79.99</div>
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Caviaar mode. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div id="chat-toggle" aria-label="Open Chat" role="button" tabindex="0" title="Chat with us">
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M2 12c0 5.421 4.579 10 10.002 10 1.945 0 3.763-.63 5.204-1.683l3.094.86a1 1 0 001.29-1.286l-1.031-4.913A9.95 9.95 0 0022 12c0-5.514-4.486-10-10-10S2 6.486 2 12z"/>
+    </svg>
+  </div>
+
+  <div id="chat-popup" role="region" aria-live="polite" aria-label="Chat window">
+    <div id="chat-header">
+       Assistant
+      <button id="chat-close" aria-label="Close Chat">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Ask about products, orders, returns..." aria-label="Chat input"/>
+      <button id="chat-send" aria-label="Send message">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('chat-toggle');
+    const chatPopup = document.getElementById('chat-popup');
+    const closeBtn = document.getElementById('chat-close');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+
+    toggleBtn.addEventListener('click', () => {
+      chatPopup.classList.toggle('open');
+      if (chatPopup.classList.contains('open')) {
+        chatInput.focus();
+      }
+    });
+    closeBtn.addEventListener('click', () => chatPopup.classList.remove('open'));
+
+    function appendMessage(content, sender, links = []) {
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      msg.textContent = content;
+
+      if (links.length > 0) {
+        const linksDiv = document.createElement('div');
+        linksDiv.classList.add('message-links');
+        links.forEach(link => {
+          const a = document.createElement('a');
+          a.href = link.url;
+          a.target = "_blank";
+          a.textContent = link.text;
+          a.classList.add('action-link');
+          linksDiv.appendChild(a);
+        });
+        msg.appendChild(linksDiv);
+      }
+
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function showTyping() {
+      const typingMsg = document.createElement('div');
+      typingMsg.classList.add('message', 'bot', 'typing');
+      typingMsg.id = 'typing-indicator';
+      typingMsg.textContent = 'Assistant is typing...';
+      chatMessages.appendChild(typingMsg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    function hideTyping() {
+      const typing = document.getElementById('typing-indicator');
+      if (typing) typing.remove();
+    }
+
+    async function sendMessage() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      appendMessage(message, 'user');
+      chatInput.value = '';
+      showTyping();
+
+      try {
+        const response = await fetch('/chat', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ message })
+        });
+
+        hideTyping();
+
+        if (!response.ok) {
+          appendMessage('Oops! Something went wrong. Please try again.', 'bot');
+          return;
+        }
+
+        const data = await response.json();
+        appendMessage(data.reply, 'bot', data.links || []);        
+      } catch (error) {
+        hideTyping();
+        appendMessage('Network error. Check your internet connection.', 'bot');
+        console.error(error);
+      }
+    }
+
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    window.addEventListener('load', () => {
+      appendMessage("Hi! I'm your assistant. Ask me about products, orders, returns, and more!", 'bot');
+    });
+  </script>
+</body>
+</html>

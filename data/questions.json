@@ -1,0 +1,164 @@
+[
+  {
+    "question": "hello",
+    "answer": "Hi there! I'm your Cavia Armode assistant. How can I help you today?",
+    "links": []
+  },
+  {
+    "question": "hi",
+    "answer": "Hello! Feel free to ask me anything about shopping, orders, or returns.",
+    "links": []
+  },
+  {
+    "question": "hey",
+    "answer": "Hey! What fashion advice can I offer you today?",
+    "links": []
+  },
+  {
+    "question": "how are you",
+    "answer": "I'm here and ready to help! What can I do for you?",
+    "links": []
+  },
+  {
+    "question": "what's your name",
+    "answer": "I'm the shopping assistant, your virtual style guide!",
+    "links": []
+  },
+  {
+    "question": "thank you",
+    "answer": "You're very welcome! Let me know if you have more questions.",
+    "links": []
+  },
+  {
+    "question": "thanks",
+    "answer": "Anytime! Happy to help you with your shopping needs.",
+    "links": []
+  },
+  {
+    "question": "bye",
+    "answer": "Goodbye! Don't hesitate to chat again if you need anything.",
+    "links": []
+  },
+  {
+    "question": "where is my order",
+    "answer": "You can track your order status and shipment details from your account.",
+    "links": [
+      { "text": "View My Orders", "url": "https://caviaarmode.com/account/orders" },
+      { "text": "Track Package", "url": "https://caviaarmode.com/track" }
+    ]
+  },
+  {
+    "question": "order status",
+    "answer": "Check your order status, estimated delivery, and tracking information.",
+    "links": [
+      { "text": "View My Orders", "url": "https://caviaarmode.com/account/orders" },
+      { "text": "Order History", "url": "https://caviaarmode.com/account/history" }
+    ]
+  },
+  {
+    "question": "return policy",
+    "answer": "You can return any item within 30 days for a full refund in original condition.",
+    "links": [
+      { "text": "Start Return", "url": "https://caviaarmode.com/returns" },
+      { "text": "Return Policy", "url": "https://caviaarmode.com/return-policy" }
+    ]
+  },
+  {
+    "question": "payment methods",
+    "answer": "We accept all major credit cards, PayPal, and Apple Pay. You can update your payment methods anytime.",
+    "links": [
+      { "text": "Payment Methods", "url": "https://caviaarmode.com/account/payment" },
+      { "text": "Billing Info", "url": "https://caviaarmode.com/account/billing" }
+    ]
+  },
+  {
+    "question": "free shipping",
+    "answer": "Yes! Free shipping is available on all orders over $50.",
+    "links": [
+      { "text": "Shipping Info", "url": "https://caviaarmode.com/shipping" },
+      { "text": "Continue Shopping", "url": "https://caviaarmode.com/products" }
+    ]
+  },
+  {
+    "question": "size chart",
+    "answer": "Find the perfect fit with our detailed size charts for all products.",
+    "links": [
+      { "text": "Size Guide", "url": "https://caviaarmode.com/size-guide" },
+      { "text": "Fitting Help", "url": "https://caviaarmode.com/fitting-guide" }
+    ]
+  },
+  {
+    "question": "cancel order",
+    "answer": "Orders can be cancelled within 1 hour of placing. After that, you can return the items.",
+    "links": [
+      { "text": "Cancel Order", "url": "https://caviaarmode.com/account/cancel" },
+      { "text": "Contact Support", "url": "https://caviaarmode.com/contact" }
+    ]
+  },
+  {
+    "question": "account management",
+    "answer": "Manage your profile, orders, addresses, and preferences in your account.",
+    "links": [
+      { "text": "My Account", "url": "https://caviaarmode.com/account" },
+      { "text": "Update Profile", "url": "https://caviaarmode.com/account/profile" }
+    ]
+  },
+  {
+    "question": "contact support",
+    "answer": "Our support team is here to help you with any questions or issues.",
+    "links": [
+      { "text": "Contact Us", "url": "https://caviaarmode.com/contact" },
+      { "text": "Live Chat", "url": "https://caviaarmode.com/chat" },
+      { "text": "Help Center", "url": "https://caviaarmode.com/help" }
+    ]
+  },
+  {
+    "question": "how do i reset my password",
+    "answer": "You can reset your password using the 'Forgot Password' option on the login page.",
+    "links": [
+      { "text": "Reset Password", "url": "https://caviaarmode.com/account/reset-password" }
+    ]
+  },
+  {
+    "question": "can you help me find a specific product",
+    "answer": "Absolutely! Let me know what you’re looking for, or browse our catalog.",
+    "links": [
+      { "text": "Browse Products", "url": "https://caviaarmode.com/products" }
+    ]
+  },
+  {
+    "question": "do you have eco-friendly clothing",
+    "answer": "Yes, we offer sustainably-made clothing. Check out our Eco Collection!",
+    "links": [
+      { "text": "Eco Collection", "url": "https://caviaarmode.com/collections/eco-friendly" }
+    ]
+  },
+  {
+    "question": "what is your best selling product right now",
+    "answer": "Our best seller this season is the Classic Denim Jacket.",
+    "links": [
+      { "text": "See Classic Denim Jacket", "url": "https://caviaarmode.com/products/classic-denim-jacket" }
+    ]
+  },
+  {
+    "question": "i want to know more about your shipping policies and options",
+    "answer": "We offer standard and express shipping. Shipping times and costs vary by location.",
+    "links": [
+      { "text": "Shipping Details", "url": "https://caviaarmode.com/shipping" }
+    ]
+  },
+  {
+    "question": "what should i do if a package is lost",
+    "answer": "Please contact our support immediately. We’ll help track or replace your order.",
+    "links": [
+      { "text": "Contact Support", "url": "https://caviaarmode.com/contact" }
+    ]
+  },
+  {
+    "question": "unknown question",
+    "answer": "I'm sorry, I didn't quite get that. Please contact our customer care at +1-800-123-4567 for assistance.",
+    "links": [
+      { "text": "Contact Support", "url": "https://caviaarmode.com/contact" }
+    ]
+  }
+]
