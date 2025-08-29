@@ -1,5 +1,19 @@
 // public/chat.js
 
+const res = await fetch('/.netlify/functions/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message })
+});
+const data = await res.json();
+// use data.answer
+
+
+
+
+
+
+
 const chatDiv = document.getElementById('chat');
 const userInput = document.getElementById('userInput');
 const sendBtn = document.getElementById('sendBtn');
